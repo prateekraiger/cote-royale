@@ -1,5 +1,3 @@
-"use client"
-
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -9,6 +7,7 @@ import { Bounded } from "@/components/Bounded";
 import clsx from "clsx";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { FadeIn } from "@/components/FadeIn";
 
 /**
  * Props for `Hero`.
@@ -25,26 +24,35 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="relative min-h-screen overflow-hidden bg-neutral-950"
     >
-      <div className="absolute inset-0 scale-125">
+      <FadeIn
+        vars={{ scale: 1, opacity: 0.5 }}
+        className="absolute inset-0 scale-125 opacity-0"
+      >
         <PrismicNextImage
           field={slice.primary.image}
           alt=""
           priority
           fill
-          className="object-cover opacity-50"
+          className="object-cover "
         />
-      </div>
+      </FadeIn>
 
       <div className="flex relative h-screen flex-col justify-center">
         <div className="max-w-xl text-6xl leading-tight text-neutral-50 max:text-7xl lg:text-8xl font-display">
           <PrismicRichText field={slice.primary.heading} />
         </div>
 
-        <div className="mt-6 max-w-md text-lg text-neutral-100">
+        <FadeIn
+          className="mt-6 max-w-md text-lg text-neutral-100 tranlate-y-8"
+          vars={{ delay: 1, duration: 1.3 }}
+        >
           <PrismicRichText field={slice.primary.body} />
-        </div>
+        </FadeIn>
 
-        <div className="mt-8">
+        <FadeIn
+          className="mt-8 translate-y-5"
+          vars={{ delay: 1.5, duration: 1.1 }}
+        >
           {slice.primary.button.map((link) => (
             <PrismicNextLink
               key={link.key}
@@ -58,7 +66,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               )}
             />
           ))}
-        </div>
+        </FadeIn>
       </div>
     </Bounded>
   );
