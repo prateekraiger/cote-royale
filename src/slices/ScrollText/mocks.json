@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "damage",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing minim cupidatat et nisi sint minim fugiat incididunt laborum labore dolor in. Magna enim elit ullamco fugiat cupidatat in nisi cupidatat in. Nulla tempor ipsum fugiat cupidatat cupidatat."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
