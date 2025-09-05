@@ -1,3 +1,4 @@
+"use client";
 import { FadeIn } from "@/components/FadeIn";
 import { createClient } from "@/prismicio";
 import { Content } from "@prismicio/client";
@@ -6,20 +7,31 @@ import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { HiPlus } from "react-icons/hi2";
 import { FragranceAttributes } from "@/components/FragranceAttributes";
+import { useEffect, useState } from "react";
 
 type FragranceDisplayProps = {
   id: string;
 };
 
-export const FragranceDisplay = async ({ id }: FragranceDisplayProps) => {
-  const client = createClient();
-  const fragrance = await client.getByID<Content.FragnanceDocument>(id);
+export const FragranceDisplay = ({ id }: FragranceDisplayProps) => {
+  const [fragrance, setFragrance] = useState<Content.FragnanceDocument | null>(null);
+
+  useEffect(() => {
+    const fetchFragrance = async () => {
+      const client = createClient();
+      const data = await client.getByID<Content.FragnanceDocument>(id);
+      setFragrance(data);
+    };
+    fetchFragrance();
+  }, [id]);
+
+  if (!fragrance) return <div>Loading...</div>;
 
   return (
     <FadeIn
-      className="relative z-10 grid min-h-[85vh] w-full translate-y-4 items-center justify-items-start border border-white/10 p-4 text-left md:p-14 lg:p-20 "
-      vars={{ duration: 2.5 }}
-      start="top 50%"
+      className="relative z-10 grid min-h-[85vh] w-full translate-y-16 items-center justify-items-start border border-white/10 p-4 text-left md:p-14 lg:p-20"
+      vars={{ duration: 1.5 }}
+      start="top 70%"
     >
       <div className="absolute inset-0 z-0">
         <PrismicNextImage
@@ -31,11 +43,7 @@ export const FragranceDisplay = async ({ id }: FragranceDisplayProps) => {
           alt=""
         />
       </div>
-      <FadeIn
-        className="relative z-10 grid translate-y-8"
-        vars={{ duration: 3, delay: 0.8 }}
-        start="top 50%"
-      >
+      <div className="relative z-10 grid space-y-6">
         <h3 className="font-display mb-3 text-5xl md:text-6xl lg:text-7xl">
           <PrismicText field={fragrance.data.title} />
         </h3>
@@ -64,7 +72,7 @@ export const FragranceDisplay = async ({ id }: FragranceDisplayProps) => {
             <span>Add To Bag</span>
           </ButtonLink>
         </div>
-      </FadeIn>
+      </div>
     </FadeIn>
   );
 };
