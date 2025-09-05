@@ -5,19 +5,8 @@
 		"primary": {
 			"eyebrow": {
 				"__TYPE__": "FieldContent",
-				"value": "product",
-				"type": "Text"
-			},
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Velit aliquip incididunt exercitation cupidatat ex elit ea incididunt aute officia veniam ipsum. Ipsum anim laborum ad dolore dolore consectetur irure adipisicing ea reprehenderit nulla aute minim."
-						}
-					}
-				]
+				"type": "Text",
+				"value": "Fragrance Quiz"
 			},
 			"body": {
 				"__TYPE__": "StructuredTextContent",
@@ -35,14 +24,27 @@
 				"type": "Link",
 				"value": [
 					{
-						"__TYPE__": "LinkContent",
 						"key": "9ac75138-d3fb-4cd1-a8c1-eb7d7ff7747e",
+						"__TYPE__": "LinkContent",
 						"value": {
 							"__TYPE__": "ExternalLink",
 							"url": "http://google.com",
 							"text": "lot",
 							"variant": "Primary"
 						}
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "The Cote Royale Fragrance",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			}
