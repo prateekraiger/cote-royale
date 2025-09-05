@@ -5,6 +5,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { HiPlus } from "react-icons/hi2";
+import { FragranceAttributes } from "@/components/FragranceAttributes";
 
 type FragranceDisplayProps = {
   id: string;
@@ -38,6 +39,12 @@ export const FragranceDisplay = async ({ id }: FragranceDisplayProps) => {
         <div className="mb-10 max-w-md text-lg text-grey-300">
           <PrismicRichText field={fragrance.data.description} />
         </div>
+
+        <FragranceAttributes
+          scentProfile={fragrance.data.scent_profile}
+          mood={fragrance.data.mood}
+          className="mb-10"
+        />
 
         <div className="flex flex-wrap gap-4">
           <ButtonLink document={fragrance} variant="Secondary">

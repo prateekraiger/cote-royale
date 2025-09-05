@@ -37,9 +37,8 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
     >
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3 lg:grid-rows-[auto,auto]">
         <FadeIn
-          className="tranlate-y-16 opacity-0 lg:col-span-2  lg:row-span-2"
-          vars={{ duration: 1 }}
-          start="top 70%"
+          className="translate-y-16 opacity-0 lg:col-span-2 lg:row-span-2"
+          vars={{ duration: 1.2 }}
         >
           <PrismicNextImage
             field={slice.primary.image}
@@ -47,7 +46,10 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
           />
         </FadeIn>
 
-        <FadeIn className="translate-y-16 space-y-6 self-start bg-white/10 p-10 lg:col-start-3 lg:row-start-1">
+        <FadeIn 
+          className="translate-y-16 opacity-0 space-y-6 self-start bg-white/10 p-10 lg:col-start-3 lg:row-start-1"
+          vars={{ duration: 1, delay: 0.3 }}
+        >
           <h2 className="text-3xl leading-tight font-semibold md:text-4xl ">
             <PrismicText field={slice.primary.heading} />
           </h2>
@@ -60,8 +62,8 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
         {/* fragnance */}
 
         <FadeIn
-          className="animate-in opacity-0 relative translate-y-16 self-end bg-white/10 will-change-transform"
-          vars={{ duration: 1, delay: 1 }}
+          className="opacity-0 relative translate-y-16 self-end bg-white/10"
+          vars={{ duration: 1.2, delay: 0.6 }}
         >
           <PrismicNextImage
             field={fragrance?.data.bottle_image}
