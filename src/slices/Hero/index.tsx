@@ -9,6 +9,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { FadeIn } from "@/components/FadeIn";
 import { RevealText } from "@/components/RevealText";
+import { ButtonLink } from "@/components/ButtonLink";
 
 /**
  * Props for `Hero`.
@@ -60,17 +61,23 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           vars={{ delay: 1.5, duration: 1.1 }}
         >
           {slice.primary.button.map((link) => (
-            <PrismicNextLink
+            <ButtonLink
               key={link.key}
               field={link}
-              className={clsx(
-                "inline-flex items-center justify-center px-12 py-4 text-center font-extrabold tracking-wider uppercase transition-colors duration-300",
-                link.variant === "Secondary"
-                  ? "border border-white text-white hover:bg-white/20"
-                  : "bg-white text-black hover:bg-white/80",
-                "w-fit",
-              )}
+              className="w-fit"
+              variant="Secondary"
             />
+
+            // <PrismicNextLink
+            //
+            //   className={clsx(
+            //     "inline-flex items-center justify-center px-12 py-4 text-center font-extrabold tracking-wider uppercase transition-colors duration-300",
+            //     link.variant === "Secondary"
+            //       ? "border border-white text-white hover:bg-white/20"
+            //       : "bg-white text-black hover:bg-white/80",
+            //     "w-fit",
+            //   )}
+            // />
           ))}
         </FadeIn>
       </div>
