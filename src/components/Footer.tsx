@@ -13,15 +13,36 @@ export const Footer = () => {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="col-span-12 lg:col-span-4">
             <Link href="/" aria-label="Côte Royale Home" className="mb-8 block">
-              <Image src="/logo.svg" alt="CÔTE ROYALE" width={180} height={30} />
+              <Image
+                src="/logo.svg"
+                alt="CÔTE ROYALE"
+                width={180}
+                height={30}
+              />
             </Link>
             <p className="text-gray-400 max-w-sm">
-              Crafting exceptional fragrances that capture the essence of luxury and sophistication.
+              Crafting exceptional fragrances that capture the essence of luxury
+              and sophistication.
             </p>
             <div className="mt-8 flex space-x-6">
-              <a href="https://www.instagram.com/dev.prat1k/" className="text-gray-400 hover:text-white"><FaInstagram size={24} /></a>
-              <a href="https://x.com/mrpratik753" className="text-gray-400 hover:text-white"><FaTwitter size={24} /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><FaFacebookF size={24} /></a>
+              <a
+                href="https://www.instagram.com/dev.prat1k/"
+                className="text-gray-400 hover:text-white"
+              >
+                <FaInstagram size={24} />
+              </a>
+              <a
+                href="https://x.com/mrpratik753"
+                className="text-gray-400 hover:text-white"
+              >
+                <FaTwitter size={24} />
+              </a>
+              <a
+                href="https://pratik-me.pages.dev/"
+                className="text-gray-400 hover:text-white"
+              >
+                <FaFacebookF size={24} />
+              </a>
             </div>
           </div>
 

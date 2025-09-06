@@ -88,12 +88,12 @@ export default function ContactPage() {
             <div className="space-y-2">
               <h3 className="font-display text-3xl">Email Us</h3>
               <p className="text-gray-300 text-lg">
-                contact@coteroyaleparis.com
+                prateekraiger098@gmail.com
               </p>
             </div>
             <div className="space-y-2">
               <h3 className="font-display text-3xl">Call Us</h3>
-              <p className="text-gray-300 text-lg">+33 1 42 86 87 88</p>
+              <p className="text-gray-300 text-lg">+91 9407 672 894</p>
             </div>
           </FadeIn>
         </div>

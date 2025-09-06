@@ -1,5 +1,7 @@
 # Côte Royale Paris
 
+![Côte Royale Paris Preview](https://ik.imagekit.io/mtk2a0sx6/Screenshot%202025-09-06%20161132.png)
+
 A luxury fragrance website built with Next.js 15, Prismic CMS, and modern web technologies. Features an elegant dark theme with smooth animations and responsive design.
 
 ## 🌟 Features
@@ -14,7 +16,8 @@ A luxury fragrance website built with Next.js 15, Prismic CMS, and modern web te
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - pnpm (recommended) or npm
 - Prismic account and repository
 
@@ -22,14 +25,12 @@ A luxury fragrance website built with Next.js 15, Prismic CMS, and modern web te
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/prateekraiger/cote-royale
 cd cote-royel
 
 # Install dependencies
 pnpm install
 
-# Set up environment variables
-cp .env.example .env.local
 ```
 
 ### Environment Variables
@@ -38,7 +39,6 @@ Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_PRISMIC_ENVIRONMENT=your-prismic-repo-name
-PRISMIC_ACCESS_TOKEN=your-access-token # Optional for public repos
 ```
 
 ### Development
@@ -48,24 +48,6 @@ PRISMIC_ACCESS_TOKEN=your-access-token # Optional for public repos
 pnpm dev
 
 # Open http://localhost:3000
-```
-
-## 📁 Project Structure
-
-```
-src/
-├── app/                 # Next.js App Router pages
-│   ├── about/          # About page
-│   ├── contact/        # Contact page
-│   ├── fragrance/      # Dynamic fragrance pages
-│   └── globals.css     # Global styles
-├── components/         # Reusable components
-│   ├── Bounded.tsx     # Layout wrapper
-│   ├── FadeIn.tsx      # Animation component
-│   ├── Navbar.tsx      # Navigation
-│   └── Footer.tsx      # Footer
-├── slices/            # Prismic slice components
-└── utils/             # Utility functions
 ```
 
 ## 🎨 Pages
@@ -82,8 +64,6 @@ src/
 - **Styling**: Tailwind CSS
 - **CMS**: Prismic
 - **Animations**: GSAP with ScrollTrigger
-- **Icons**: Heroicons
-- **Fonts**: Raleway, Custom Gambrino
 
 ## 📦 Build & Deploy
 
@@ -97,55 +77,6 @@ pnpm build
 pnpm start
 ```
 
-### Deploy to Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/cote-royel)
-
-1. Connect your GitHub repository
-2. Add environment variables
-3. Deploy automatically
-
-### Other Platforms
-
-- **Netlify**: `pnpm build` → Deploy `out/` folder
-- **Railway**: Connect repository with build command `pnpm build`
-- **DigitalOcean**: Use App Platform with Node.js buildpack
-
-## 🔧 Configuration
-
-### Prismic Setup
-
-1. Create a Prismic repository
-2. Import the custom types from `customtypes/`
-3. Add your repository name to environment variables
-4. Configure preview URLs in Prismic dashboard
-
-### Performance
-
-- Images are optimized with Next.js Image component
-- Static pages are pre-generated at build time
-- Prismic content is cached with revalidation
-- Bundle size optimized with tree shaking
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
-
 ## 📄 License
 
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-For support, email contact@coteroyaleparis.com or create an issue in the repository.
+This project is licensed under the Apache License.
