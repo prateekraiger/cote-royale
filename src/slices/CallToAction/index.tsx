@@ -48,8 +48,8 @@ const CallToAction: FC<CallToActionProps> = ({ slice }) => {
 
         <div className="mt-10">
           {slice.primary.button.map((link) => (
-            <FadeIn>
-              <ButtonLink key={link.key} field={link} variant={link.variant} />
+            <FadeIn key={link.key}>
+              <ButtonLink field={link} variant={link.variant} />
             </FadeIn>
           ))}
         </div>
