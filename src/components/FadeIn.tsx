@@ -1,11 +1,11 @@
-"use client";
-import { gsap } from "gsap";
-import clsx from "clsx";
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+'use client';
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import clsx from 'clsx';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type FadeInProps = {
   children: React.ReactNode;
@@ -16,43 +16,40 @@ type FadeInProps = {
 
 export const FadeIn = ({
   children,
-  start = "top 80%",
+  start = 'top 80%',
   vars = {},
   className,
 }: FadeInProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.to(containerRef.current, {
-          duration: 5,
-          opacity: 1,
-          ease: "power3.out",
-          y: 0,
-          ...vars,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start,
-          },
-        });
-      });
+  useEffect(() => {
+    const animation = gsap.fromTo(
+      containerRef.current,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start,
+          toggleActions: 'play none none none',
+        },
+        ...vars,
+      }
+    );
 
-      mm.add("(prefers-reduced-motion: reduce)", () => {
-        gsap.to(containerRef.current, {
-          duration: 0.5,
-          opacity: 1,
-          ease: "none",
-          y: 0,
-          stagger: 0,
-        });
-      });
-    },
-    { scope: containerRef },
-  );
+    return () => {
+      animation.kill();
+    };
+  }, [start, vars]);
+
   return (
-    <div ref={containerRef} className={clsx("opacity-0", className)}>
+    <div ref={containerRef} className={clsx('opacity-0', className)}>
       {children}
     </div>
   );

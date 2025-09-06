@@ -1,32 +1,74 @@
+'use client';
+
 import { createClient } from "@/prismicio";
 import { formatPrice } from "@/utils/formatters";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
 import Link from "next/link";
+import { FadeIn } from "./FadeIn";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type OtherFragrancesProps = {
   currentFragranceUid: string;
 };
 
-export const OtherFragrances = async ({
-  currentFragranceUid,
-}: OtherFragrancesProps) => {
-  const client = createClient();
-  const allFragrances = await client.getAllByType("fragnance");
+export const OtherFragrances = ({ currentFragranceUid }: OtherFragrancesProps) => {
+  const [otherFragrances, setOtherFragrances] = useState<any[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const otherFragrances = allFragrances.filter(
-    (fragrance) => fragrance.uid !== currentFragranceUid,
-  );
+  useEffect(() => {
+    const client = createClient();
+    client.getAllByType("fragnance").then((allFragrances) => {
+      const filteredFragrances = allFragrances.filter(
+        (fragrance) => fragrance.uid !== currentFragranceUid,
+      );
+      setOtherFragrances(filteredFragrances);
+    });
+  }, [currentFragranceUid]);
+
+  useEffect(() => {
+    if (otherFragrances.length > 0) {
+      const animation = gsap.fromTo(
+        ".fragrance-item",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+
+      return () => {
+        animation.kill();
+      };
+    }
+  }, [otherFragrances]);
 
   return (
-    <div className="container mx-auto px-4">
-      <h2 className="font-display mb-8 text-3xl text-white md:text-4xl">
-        You may also like
-      </h2>
+    <div ref={containerRef} className="container mx-auto px-4">
+      <FadeIn>
+        <h2 className="font-display mb-8 text-3xl text-white md:text-4xl">
+          You may also like
+        </h2>
+      </FadeIn>
 
       <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {otherFragrances.map((fragrance) => (
-          <li key={fragrance.id}>
+          <li key={fragrance.id} className="fragrance-item opacity-0">
             <Link href={`/fragrance/${fragrance.uid}`} className="group">
               <div className="relative aspect-square w-full transition-transform duration-500 group-hover:scale-105">
                 <PrismicNextImage

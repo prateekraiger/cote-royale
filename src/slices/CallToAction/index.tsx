@@ -4,7 +4,6 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { FadeIn } from "@/components/FadeIn";
 import { RevealText } from "@/components/RevealText";
 import { ButtonLink } from "@/components/ButtonLink";
-import { Bounded } from "@/components/Bounded";
 
 /**
  * Props for `CallToAction`.
@@ -16,12 +15,12 @@ export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
  */
 const CallToAction: FC<CallToActionProps> = ({ slice }) => {
   return (
-    <Bounded
+    <div
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative overflow-hidden bg-[url('/background.avif')] bg-cover bg-center py-16 text-gray-50 md:py-28"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[url('/background.avif')] bg-cover bg-center text-gray-50"
     >
-      <div className="relative z-10 mx-auto max-w-4xl space-y-8 text-center">
+      <div className="relative z-10 mx-auto w-full max-w-4xl space-y-8 px-4 text-center">
         <FadeIn
           className="translate-y-2 text-sm font-light tracking-[.2em] uppercase"
           vars={{ duration: 0.8 }}
@@ -54,7 +53,7 @@ const CallToAction: FC<CallToActionProps> = ({ slice }) => {
           ))}
         </div>
       </div>
-    </Bounded>
+    </div>
   );
 };
 

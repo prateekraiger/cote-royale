@@ -29,7 +29,7 @@ export const FragranceDisplay = ({ id }: FragranceDisplayProps) => {
 
   return (
     <FadeIn
-      className="relative z-10 grid min-h-[85vh] w-full translate-y-16 items-center justify-items-start border border-white/10 p-4 text-left md:p-14 lg:p-20"
+      className="relative z-10 grid min-h-[95vh] w-full translate-y-16 items-center justify-items-start border border-white/10 p-4 text-left md:p-14 lg:p-20"
       vars={{ duration: 1.5 }}
       start="top 70%"
     >
