@@ -81,7 +81,7 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
               <p className="mt-2 text-grey-400"> Eau De Perfume</p>
 
               <ButtonLink
-                document={fragrance}
+                href={fragrance ? `/fragrance/${fragrance.uid}` : "#"}
                 variant="Secondary"
                 className="mt-6"
               >
