@@ -43,6 +43,7 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
           <PrismicNextImage
             field={slice.primary.image}
             className="h-auto w-full object-cover"
+            alt=""
           />
         </FadeIn>
 
@@ -67,7 +68,8 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
         >
           <PrismicNextImage
             field={fragrance?.data.bottle_image}
-            className="mx-auto -mt-10 w-full -rotate-12 md:-mt-20 "
+            className="mx-auto -mt-10 w-full -rotate-12 md:-mt-20"
+            alt=""
           />
           <div className="flex justify-between p-10 pt-4">
             <div className="space-y-1">

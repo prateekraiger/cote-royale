@@ -82,6 +82,7 @@ export const FragranceDisplay = ({ id }: FragranceDisplayProps) => {
               width={400}
               height={600}
               className="h-auto w-full max-w-sm drop-shadow-2xl"
+              alt=""
             />
           </div>
         </div>
