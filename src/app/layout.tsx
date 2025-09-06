@@ -23,6 +23,7 @@ const gambrino = localFont({
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
     title: "Côte Royale Paris",
     description:
       "Discover the exquisite collection of luxury fragrances by Côte Royale Paris",

@@ -1,9 +1,5 @@
-'use client';
+import { notFound } from "next/navigation";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import { createClient } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
@@ -12,90 +8,12 @@ import { formatPrice } from "@/utils/formatters";
 import { HiStar } from "react-icons/hi2";
 import { OtherFragrances } from "../../../components/OtherFragrances";
 import { FadeIn } from "@/components/FadeIn";
-import { useEffect, useRef, useState } from "react";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-export default function Page({ params }: { params: { uid: string } }) {
-  const { uid } = params;
-  const container = useRef(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [page, setPage] = useState<any>(null);
-
-  useEffect(() => {
-    const client = createClient();
-    client.getByUID("fragnance", uid).then((page) => {
-      setPage(page);
-    });
-  }, [uid]);
-
-  useGSAP(
-    () => {
-      if (!page) return;
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-
-      tl.fromTo(
-        ".bottle-image",
-        {
-          scale: 0.8,
-          opacity: 0,
-          y: 100,
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-          duration: 1,
-        },
-      );
-
-      tl.fromTo(
-        ".product-title",
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-          duration: 1,
-        },
-        "-=0.5",
-      );
-
-      tl.fromTo(
-        ".product-description",
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-          duration: 1,
-        },
-        "-=0.5",
-      );
-    },
-    { scope: container, dependencies: [page] },
-  );
-
-  if (!page) {
-    return <div>Loading...</div>;
-  }
+export default async function Page({ params }: { params: Promise<{ uid: string }> }) {
+  const { uid } = await params;
+  const client = createClient();
+  const page = await client.getByUID("fragnance", uid).catch(() => notFound());
 
   return (
-    <div ref={container}>
       <Bounded className="py-10">
         <div className="grid grid-cols-1 items-center gap-10 pb-10 lg:grid-cols-2">
           <div className="relative mb-14 flex justify-center pb-10">
@@ -104,7 +22,7 @@ export default function Page({ params }: { params: { uid: string } }) {
               width={600}
               height={600}
               priority
-              className="absolute top-[90%] -scale-y-100 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0)_70%,rgba(0,0,0,.15)_100%)] bottle-image"
+              className="absolute top-[90%] -scale-y-100 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0)_70%,rgba(0,0,0,.15)_100%)]"
               alt=""
             />
             <PrismicNextImage
@@ -112,18 +30,18 @@ export default function Page({ params }: { params: { uid: string } }) {
               width={600}
               height={600}
               priority
-              className="relative bottle-image"
+              className="relative"
               alt=""
             />
           </div>
           {/* Product info section */}
 
           <div className="text-white">
-            <h1 className="font-display mb-4 border-b border-neutral-700 pb-2 text-4xl md:text-5xl product-title">
+            <h1 className="font-display mb-4 border-b border-neutral-700 pb-2 text-4xl md:text-5xl">
               <PrismicText field={page.data.title} fallback="Fragrance" />
             </h1>
 
-            <div className="space-y-6 product-description">
+            <div className="space-y-6">
               <p className="text-md font-semibold">Eau de Parfum Spray</p>
 
               <PrismicRichText field={page.data.description} />
@@ -210,6 +128,5 @@ export default function Page({ params }: { params: { uid: string } }) {
 
         <OtherFragrances currentFragranceUid={uid} />
       </Bounded>
-    </div>
   );
 }
