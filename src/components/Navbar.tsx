@@ -104,17 +104,64 @@ export const Navbar = () => {
         </div>
 
         <nav className="space-y-4" aria-label="Main Navigation">
-          {navigationLinks.map((link) => (
-            <Link
-              href={link.href}
-              onClick={() => setIsDrawerOpen(false)}
-              key={link.href}
-              className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
-              tabIndex={isDrawerOpen ? 0 : -1}
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            href="/"
+            onClick={() => setIsDrawerOpen(false)}
+            className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
+            tabIndex={isDrawerOpen ? 0 : -1}
+          >
+            Home
+          </Link>
+          
+          <div className="border-b border-white/10 py-2">
+            <div className="text-xl font-semibold tracking-wide text-white uppercase mb-2">
+              Fragrances
+            </div>
+            <div className="ml-4 space-y-2">
+              <Link
+                href="/fragrance/ignis"
+                onClick={() => setIsDrawerOpen(false)}
+                className="block py-1 text-lg text-gray-300 hover:text-white"
+                tabIndex={isDrawerOpen ? 0 : -1}
+              >
+                Ignis
+              </Link>
+              <Link
+                href="/fragrance/aqua"
+                onClick={() => setIsDrawerOpen(false)}
+                className="block py-1 text-lg text-gray-300 hover:text-white"
+                tabIndex={isDrawerOpen ? 0 : -1}
+              >
+                Aqua
+              </Link>
+              <Link
+                href="/fragrance/terra"
+                onClick={() => setIsDrawerOpen(false)}
+                className="block py-1 text-lg text-gray-300 hover:text-white"
+                tabIndex={isDrawerOpen ? 0 : -1}
+              >
+                Terra
+              </Link>
+            </div>
+          </div>
+          
+          <Link
+            href="/about"
+            onClick={() => setIsDrawerOpen(false)}
+            className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
+            tabIndex={isDrawerOpen ? 0 : -1}
+          >
+            About
+          </Link>
+          
+          <Link
+            href="/contact"
+            onClick={() => setIsDrawerOpen(false)}
+            className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
+            tabIndex={isDrawerOpen ? 0 : -1}
+          >
+            Contact
+          </Link>
           <div className="pt-4 md:hidden">
             <NavIcons
               className="justify-around"

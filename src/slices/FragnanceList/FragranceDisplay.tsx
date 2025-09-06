@@ -43,48 +43,34 @@ export const FragranceDisplay = ({ id }: FragranceDisplayProps) => {
           alt=""
         />
       </div>
-      <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
-        <div className="space-y-6">
-          <h3 className="font-display mb-3 text-5xl md:text-6xl lg:text-7xl">
-            <PrismicText field={fragrance.data.title} />
-          </h3>
+      <div className="relative z-10 max-w-2xl">
+        <h3 className="font-display mb-3 text-5xl md:text-6xl lg:text-7xl">
+          <PrismicText field={fragrance.data.title} />
+        </h3>
 
-          <p className="mb-8 text-base font-semibold text-grey-300">
-            Eau De Parfum
-          </p>
+        <p className="mb-8 text-base font-semibold text-grey-300">
+          Eau De Parfum
+        </p>
 
-          <div className="mb-10 max-w-md text-lg text-grey-300">
-            <PrismicRichText field={fragrance.data.description} />
-          </div>
-
-          <FragranceAttributes
-            scentProfile={fragrance.data.scent_profile}
-            mood={fragrance.data.mood}
-            className="mb-10"
-          />
-
-          <div className="flex flex-wrap gap-4">
-            <ButtonLink href={`/fragrance/${fragrance.uid}`} variant="Secondary">
-              Discover
-            </ButtonLink>
-
-            <ButtonLink href="#" variant="Primary">
-              <HiPlus className="mr-2" />
-              <span>Add To Bag</span>
-            </ButtonLink>
-          </div>
+        <div className="mb-10 max-w-md text-lg text-grey-300">
+          <PrismicRichText field={fragrance.data.description} />
         </div>
 
-        <div className="relative flex justify-center">
-          <div className="relative transition-transform duration-500 hover:scale-105 hover:-rotate-12">
-            <PrismicNextImage
-              field={fragrance.data.bottle_image}
-              width={400}
-              height={600}
-              className="h-auto w-full max-w-sm drop-shadow-2xl"
-              alt=""
-            />
-          </div>
+        <FragranceAttributes
+          scentProfile={fragrance.data.scent_profile}
+          mood={fragrance.data.mood}
+          className="mb-10"
+        />
+
+        <div className="flex flex-wrap gap-4">
+          <ButtonLink href={`/fragrance/${fragrance.uid}`} variant="Secondary">
+            Discover
+          </ButtonLink>
+
+          <ButtonLink href="#" variant="Primary">
+            <HiPlus className="mr-2" />
+            <span>Add To Bag</span>
+          </ButtonLink>
         </div>
       </div>
     </FadeIn>

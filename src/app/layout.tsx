@@ -9,6 +9,7 @@ import { isFilled } from "@prismicio/client";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -25,7 +26,8 @@ const gambrino = localFont({
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Côte Royale Paris",
-    description: "Discover the exquisite collection of luxury fragrances by Côte Royale Paris",
+    description:
+      "Discover the exquisite collection of luxury fragrances by Côte Royale Paris",
     openGraph: {
       images: ["/og-image.png"],
     },
@@ -37,18 +39,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <html
-      lang="en"
-      className={`${raleway.variable} ${gambrino.variable} antialiased`}
-    >
-      <body className="bg-neutral-900 text-white">
-        <Navbar />
-        <main className="pt-14 md:pt-16">{children}</main>
-        <Footer />
-        <PrismicPreview repositoryName={repositoryName} />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={`${raleway.variable} ${gambrino.variable} antialiased`}
+      >
+        <body className="bg-neutral-900 text-white">
+          <Navbar />
+          <main className="pt-14 md:pt-16">{children}</main>
+          <Footer />
+          <PrismicPreview repositoryName={repositoryName} />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
