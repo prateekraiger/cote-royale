@@ -76,6 +76,47 @@ export default async function Page({ params }: { params: Promise<Params> }) {
               </div>
               <span>4.4/5</span>
             </div>
+
+            {/* Product Information */}
+            <div className="mt-8 space-y-6 border-t border-neutral-700 pt-6">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center mt-1">
+                    <span className="text-green-400 text-sm">🚚</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">Shipping</h4>
+                    <p className="text-gray-300 text-sm">
+                      Free Shipping on all prepaid orders pan India. ₹50 extra for Cash on Delivery
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mt-1">
+                    <span className="text-blue-400 text-sm">💳</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">Payment</h4>
+                    <p className="text-gray-300 text-sm">
+                      Your payment information is processed securely. We do not store credit card details nor have access to your credit card information.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center mt-1">
+                    <span className="text-purple-400 text-sm">🔒</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">Security</h4>
+                    <p className="text-gray-300 text-sm">
+                      This website is encrypted. We take your security very seriously. All transactions are powered by Razorpay.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
