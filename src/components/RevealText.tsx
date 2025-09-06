@@ -11,8 +11,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type RevealTextProps = {
   field: RichTextField;
-  id: String;
-  className?: String;
+  id: string;
+  className?: string;
   staggerAmount?: number;
   as?: React.ElementType;
   duration?: number;

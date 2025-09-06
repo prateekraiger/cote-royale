@@ -1,5 +1,4 @@
 'use client';
-import { notFound } from "next/navigation";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -17,11 +16,10 @@ import { useEffect, useRef, useState } from "react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-type Params = { uid: string };
-
 export default function Page({ params }: { params: { uid: string } }) {
   const { uid } = params;
   const container = useRef(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [page, setPage] = useState<any>(null);
 
   useEffect(() => {

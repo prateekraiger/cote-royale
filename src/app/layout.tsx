@@ -4,8 +4,6 @@ import localFont from "next/font/local";
 
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
-import { createClient } from "@/prismicio";
-import { isFilled } from "@prismicio/client";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import "./globals.css";

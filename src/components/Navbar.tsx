@@ -31,13 +31,6 @@ const NavIcons = ({ className = "", tabIndex }: NavIconsProps) => (
   </div>
 );
 
-const navigationLinks = [
-  { href: "/", label: "Home" },
-  { href: "/fragrances", label: "Fragrances" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" }, 
-];
-
 export const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
