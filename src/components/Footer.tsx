@@ -1,46 +1,55 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <footer aria-labelledby="footer-heading" className="bg-black py-16">
+    <footer aria-labelledby="footer-heading" className="bg-black text-white">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="container mx-auto px-6">
-        <div className="grid gap-10 md:grid-cols-3">
-          <NavGroup title="Shop">
-            <NavLink href="/fragrance/terra">Terra</NavLink>
-            <NavLink href="/fragrance/igni">Igni</NavLink>
-            <NavLink href="/fragrance/aqua">Aqua</NavLink>
-          </NavGroup>
+      <div className="w-full px-6 py-16">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="col-span-12 lg:col-span-4">
+            <Link href="/" aria-label="Côte Royale Home" className="mb-8 block">
+              <Image src="/logo.svg" alt="CÔTE ROYALE" width={180} height={30} />
+            </Link>
+            <p className="text-gray-400 max-w-sm">
+              Crafting exceptional fragrances that capture the essence of luxury and sophistication.
+            </p>
+            <div className="mt-8 flex space-x-6">
+              <a href="https://www.instagram.com/dev.prat1k/" className="text-gray-400 hover:text-white"><FaInstagram size={24} /></a>
+              <a href="https://x.com/mrpratik753" className="text-gray-400 hover:text-white"><FaTwitter size={24} /></a>
+              <a href="#" className="text-gray-400 hover:text-white"><FaFacebookF size={24} /></a>
+            </div>
+          </div>
 
-          <NavGroup title="About">
-            <NavLink href="#">Science</NavLink>
-            <NavLink href="#">Our Story</NavLink>
-            <NavLink href="#">Côte Royale</NavLink>
-          </NavGroup>
+          <div className="col-span-12 lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+            <NavGroup title="Shop">
+              <NavLink href="/fragrance/terra">Terra</NavLink>
+              <NavLink href="/fragrance/ignis">Ignis</NavLink>
+              <NavLink href="/fragrance/aqua">Aqua</NavLink>
+            </NavGroup>
 
-          <NavGroup title="Social">
-            <NavLink href="#">Instagram</NavLink>
-            <NavLink href="#">X (Twitter)</NavLink>
-            <NavLink href="#">Facebook</NavLink>
-          </NavGroup>
+            <NavGroup title="About">
+              <NavLink href="/about">Our Story</NavLink>
+              <NavLink href="#">Fragrance Quiz</NavLink>
+              <NavLink href="#">Contact Us</NavLink>
+            </NavGroup>
+
+            <NavGroup title="Support">
+              <NavLink href="#">FAQ</NavLink>
+              <NavLink href="#">Shipping & Returns</NavLink>
+              <NavLink href="#">Track Your Order</NavLink>
+            </NavGroup>
+          </div>
         </div>
 
-        {/* Bottom footer */}
         <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-neutral-800 pt-8 md:flex-row">
           <p className="text-center text-sm text-gray-400">
             © {new Date().getFullYear()} Côte Royale Inc. All rights reserved
           </p>
-          <Link
-            href="/"
-            aria-label="Côte Royale Home"
-            className="order-first md:order-none"
-          >
-            <Image src="/logo.svg" alt="CÔTE ROYALE" width={150} height={25} />
-          </Link>
           <ul
             aria-label="Legal"
             className="flex flex-wrap justify-center gap-6 text-sm text-gray-400"
@@ -75,7 +84,7 @@ const NavGroup = ({ title, children }: NavGroupProps) => (
     >
       {title}
     </h3>
-    <ul className="space-y-4" role="list">
+    <ul className="space-y-4 text-gray-400" role="list">
       {children}
     </ul>
   </nav>
@@ -89,7 +98,7 @@ type NavLinkProps = {
 const NavLink = ({ href, children }: NavLinkProps) => {
   return (
     <li>
-      <Link href={href} className="hover:text-gray-300">
+      <Link href={href} className="hover:text-white">
         {children}
       </Link>
     </li>
