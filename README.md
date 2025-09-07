@@ -50,12 +50,7 @@ pnpm dev
 # Open http://localhost:3000
 ```
 
-## 🎨 Pages
 
-- **Home** (`/`) - Hero section with featured fragrances
-- **About** (`/about`) - Brand story and values
-- **Contact** (`/contact`) - Contact form and information
-- **Fragrance** (`/fragrance/[uid]`) - Individual fragrance details
 
 ## 🛠️ Built With
 
