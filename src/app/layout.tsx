@@ -42,11 +42,11 @@ export default function RootLayout({
     <ViewTransitions>
       <html
         lang="en"
-        className={`${raleway.variable} ${gambrino.variable} antialiased`}
+        className={`${raleway.variable} ${gambrino.variable} antialiased scroll-smooth`}
       >
         <body className="bg-neutral-900 text-white">
           <Navbar />
-          <main className="pt-16 sm:pt-18 md:pt-20">{children}</main>
+          <main className="pt-20 sm:pt-24 md:pt-28">{children}</main>
           <Footer />
           <PrismicPreview repositoryName={repositoryName} />
         </body>

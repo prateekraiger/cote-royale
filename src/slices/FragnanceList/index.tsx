@@ -46,7 +46,7 @@ const FragnanceList: FC<FragnanceListProps> = ({ slice }) => {
           </div>
         </FadeIn>
 
-        <div className="grid mt-8 sm:mt-12 grid-cols-1 gap-8 sm:gap-12">
+        <div className="grid mt-8 sm:mt-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {slice.primary.fragrances.map((item) => {
             if (isFilled.contentRelationship(item.fragrance)) {
               return (

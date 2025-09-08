@@ -29,7 +29,7 @@ export const FragranceDisplay = ({ id }: FragranceDisplayProps) => {
 
   return (
     <FadeIn
-      className="relative z-10 grid min-h-[80vh] sm:min-h-[90vh] md:min-h-[95vh] w-full translate-y-16 items-center justify-items-start border border-white/10 p-6 sm:p-8 md:p-14 lg:p-20 text-left"
+      className="relative z-10 grid min-h-[80vh] sm:min-h-[90vh] md:min-h-[95vh] w-full translate-y-16 items-center justify-items-start border border-white/10 p-6 sm:p-8 md:p-12 lg:p-16 text-left"
       vars={{ duration: 1.5 }}
       start="top 70%"
     >
@@ -44,7 +44,7 @@ export const FragranceDisplay = ({ id }: FragranceDisplayProps) => {
         />
       </div>
       <div className="relative z-10 max-w-full sm:max-w-lg md:max-w-2xl">
-        <h3 className="font-display mb-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+        <h3 className="font-display mb-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
           <PrismicText field={fragrance.data.title} />
         </h3>
 
@@ -62,7 +62,7 @@ export const FragranceDisplay = ({ id }: FragranceDisplayProps) => {
           className="mb-8 sm:mb-10"
         />
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           <ButtonLink href={`/fragrance/${fragrance.uid}`} variant="Secondary" className="w-full sm:w-auto">
             Discover
           </ButtonLink>

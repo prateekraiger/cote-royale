@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Bounded className="py-16 md:py-24">
+    <Bounded className="py-16 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-6xl space-y-16">
         {/* Hero Section */}
         <FadeIn className="text-center space-y-8">

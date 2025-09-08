@@ -9,45 +9,45 @@ export const Footer = () => {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="w-full px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid gap-8 sm:gap-10 md:grid-cols-12">
-          <div className="col-span-12 lg:col-span-4">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid gap-10 sm:gap-12 md:grid-cols-12">
+          <div className="col-span-12 lg:col-span-4 flex flex-col items-center sm:items-start">
             <Link href="/" aria-label="Côte Royale Home" className="mb-6 sm:mb-8 block">
               <Image
                 src="/logo.svg"
                 alt="CÔTE ROYALE"
                 width={180}
                 height={30}
-                className="w-36 sm:w-44 h-auto"
+                className="w-40 sm:w-48 h-auto"
               />
             </Link>
-            <p className="text-gray-400 max-w-sm text-sm sm:text-base">
+            <p className="text-gray-400 max-w-sm text-sm sm:text-base text-center sm:text-left">
               Crafting exceptional fragrances that capture the essence of luxury
               and sophistication.
             </p>
             <div className="mt-6 sm:mt-8 flex space-x-4 sm:space-x-6">
               <a
                 href="https://www.instagram.com/dev.prat1k/"
-                className="text-gray-400 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors"
+                className="text-gray-400 hover:text-white p-2 rounded-md hover:bg-white/10 transition-colors"
               >
-                <FaInstagram size={20} className="sm:w-6 sm:h-6" />
+                <FaInstagram size={22} className="sm:w-6 sm:h-6" />
               </a>
               <a
                 href="https://x.com/mrpratik753"
-                className="text-gray-400 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors"
+                className="text-gray-400 hover:text-white p-2 rounded-md hover:bg-white/10 transition-colors"
               >
-                <FaTwitter size={20} className="sm:w-6 sm:h-6" />
+                <FaTwitter size={22} className="sm:w-6 sm:h-6" />
               </a>
               <a
                 href="https://pratik-me.pages.dev/"
-                className="text-gray-400 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors"
+                className="text-gray-400 hover:text-white p-2 rounded-md hover:bg-white/10 transition-colors"
               >
-                <FaFacebookF size={20} className="sm:w-6 sm:h-6" />
+                <FaFacebookF size={22} className="sm:w-6 sm:h-6" />
               </a>
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="col-span-12 lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-8 sm:gap-10">
             <NavGroup title="Shop">
               <NavLink href="/fragrance/terra">Terra</NavLink>
               <NavLink href="/fragrance/ignis">Ignis</NavLink>
@@ -68,7 +68,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 flex flex-col items-center justify-between gap-4 sm:gap-6 border-t border-neutral-800 pt-6 sm:pt-8 md:flex-row">
+        <div className="mt-12 sm:mt-16 flex flex-col items-center justify-between gap-6 sm:gap-8 border-t border-neutral-800 pt-8 sm:pt-10 md:flex-row">
           <p className="text-center text-xs sm:text-sm text-gray-400">
             © {new Date().getFullYear()} Côte Royale Inc. All rights reserved
           </p>

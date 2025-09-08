@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-black text-white grid grid-cols-1 lg:grid-cols-2">
+    <div className="bg-black text-white grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
       {/* Contact Form Section */}
       <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
         <FadeIn>

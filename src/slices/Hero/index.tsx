@@ -36,18 +36,18 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         />
       </FadeIn>
 
-      <div className="flex relative h-screen flex-col justify-center px-4 sm:px-6">
+      <div className="relative flex h-screen flex-col items-center justify-center text-center px-4 sm:px-6">
         <RevealText
           field={slice.primary.heading}
           id="hero-heading"
-          className="max-w-xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight sm:leading-none text-neutral-50 font-display"
+          className="max-w-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight sm:leading-none text-neutral-50 font-display"
           staggerAmount={0.2}
           duration={1.6}
           as="h1"
         ></RevealText>
 
         <FadeIn
-          className="mt-4 sm:mt-6 max-w-sm sm:max-w-md text-base sm:text-lg text-neutral-100 tranlate-y-8"
+          className="mt-4 sm:mt-6 max-w-md sm:max-w-lg text-base sm:text-lg text-neutral-100 tranlate-y-8"
           vars={{ delay: 1, duration: 1.3 }}
         >
           <PrismicRichText field={slice.primary.body} />

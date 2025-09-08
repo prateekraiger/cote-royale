@@ -33,69 +33,69 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="overflow-hidden bg-black py-16 text-white md:py-24 "
+      className="overflow-hidden bg-black py-16 text-white md:py-24"
     >
-      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3 lg:grid-rows-[auto,auto]">
+      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <FadeIn
-          className="translate-y-16 opacity-0 lg:col-span-2 lg:row-span-2"
+          className="translate-y-16 opacity-0"
           vars={{ duration: 1.2 }}
         >
           <PrismicNextImage
             field={slice.primary.image}
-            className="h-auto w-full object-cover"
+            className="h-auto w-full object-cover rounded-lg"
             alt=""
           />
         </FadeIn>
 
-        <FadeIn 
-          className="translate-y-16 opacity-0 space-y-6 self-start bg-white/10 p-10 lg:col-start-3 lg:row-start-1"
-          vars={{ duration: 1, delay: 0.3 }}
-        >
-          <h2 className="text-3xl leading-tight font-semibold md:text-4xl ">
-            <PrismicText field={slice.primary.heading} />
-          </h2>
+        <div className="grid grid-rows-2 gap-8">
+          <FadeIn 
+            className="translate-y-16 opacity-0 space-y-6 self-start bg-white/10 p-8 sm:p-10 rounded-lg"
+            vars={{ duration: 1, delay: 0.3 }}
+          >
+            <h2 className="text-3xl leading-tight font-semibold md:text-4xl">
+              <PrismicText field={slice.primary.heading} />
+            </h2>
 
-          <div className="text-base max-w-lg text-gray-300">
-            <PrismicRichText field={slice.primary.description} />
-          </div>
-        </FadeIn>
-
-        {/* fragnance */}
-
-        <FadeIn
-          className="opacity-0 relative translate-y-16 self-end bg-white/10"
-          vars={{ duration: 1.2, delay: 0.6 }}
-        >
-          <PrismicNextImage
-            field={fragrance?.data.bottle_image}
-            className="mx-auto -mt-10 w-full -rotate-12 md:-mt-20"
-            alt=""
-          />
-          <div className="flex justify-between p-10 pt-4">
-            <div className="space-y-1">
-              <h3 className="font-display text-4xl">
-                <PrismicText
-                  field={fragrance?.data.title}
-                  fallback="/Fragnance"
-                />
-              </h3>
-
-              <p className="mt-2 text-grey-400"> Eau De Perfume</p>
-
-              <ButtonLink
-                href={fragrance ? `/fragrance/${fragrance.uid}` : "#"}
-                variant="Secondary"
-                className="mt-6"
-              >
-                Shop Now
-              </ButtonLink>
+            <div className="text-base max-w-lg text-gray-300">
+              <PrismicRichText field={slice.primary.description} />
             </div>
+          </FadeIn>
 
-            <p className="mt-4 text-gray-100" aria-label="Product Price">
-              <span>{formattedPrice}</span>
-            </p>
-          </div>
-        </FadeIn>
+          <FadeIn
+            className="opacity-0 relative translate-y-16 self-end bg-white/10 rounded-lg"
+            vars={{ duration: 1.2, delay: 0.6 }}
+          >
+            <PrismicNextImage
+              field={fragrance?.data.bottle_image}
+              className="mx-auto w-1/2 -mt-16 sm:-mt-20 md:-mt-24 lg:-mt-32 -rotate-12"
+              alt=""
+            />
+            <div className="flex justify-between items-end p-8 sm:p-10 pt-4">
+              <div className="space-y-2">
+                <h3 className="font-display text-3xl sm:text-4xl">
+                  <PrismicText
+                    field={fragrance?.data.title}
+                    fallback="/Fragnance"
+                  />
+                </h3>
+
+                <p className="text-gray-400">Eau De Perfume</p>
+
+                <ButtonLink
+                  href={fragrance ? `/fragrance/${fragrance.uid}` : "#"}
+                  variant="Secondary"
+                  className="mt-4"
+                >
+                  Shop Now
+                </ButtonLink>
+              </div>
+
+              <p className="text-2xl sm:text-3xl font-medium text-gray-100" aria-label="Product Price">
+                <span>{formattedPrice}</span>
+              </p>
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </Bounded>
   );

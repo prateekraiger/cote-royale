@@ -34,7 +34,7 @@ const ScrollText: FC<ScrollTextProps> = ({ slice }) => {
 
       // initial colour
 
-      gsap.set(contentElement, { filter: "blur(40px)" });
+      gsap.set(contentElement, { filter: "blur(20px)" });
       gsap.set(letters, { color: "hsl(220,9%,20%)" });
 
       gsap.to(contentElement, {
@@ -42,8 +42,8 @@ const ScrollText: FC<ScrollTextProps> = ({ slice }) => {
         duration: 1,
         scrollTrigger: {
           trigger: component,
-          start: "top 75%",
-          end: "top top",
+          start: "top 80%",
+          end: "top 20%",
           scrub: 2,
         },
       });
@@ -52,7 +52,7 @@ const ScrollText: FC<ScrollTextProps> = ({ slice }) => {
         scrollTrigger: {
           trigger: component,
           start: "top top",
-          end: "bottom -100%",
+          end: "bottom -150%",
           pin: true,
           scrub: 2,
         },
@@ -92,14 +92,14 @@ const ScrollText: FC<ScrollTextProps> = ({ slice }) => {
 
       <div
         ref={contentRef}
-        className="mb-2 text-center text-sm tracking-wider text-neutral-200 uppercase md:mb-8 md:text-base"
+        className="mb-4 text-center text-xs tracking-widest text-neutral-200 uppercase md:mb-8 md:text-sm"
       >
         <div>{slice.primary.eyebrow}</div>
       </div>
 
       {/* para */}
       <div ref={textRef} className="text-center">
-        <p className="font-display flex flex-wrap justify-center text-5xl leading-tight text-balance uppercase md:text-7xl ">
+        <p className="font-display flex flex-wrap justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-balance uppercase">
           {words.map((word, index) => (
             <span key={`&{word}-${index}`} className="inline">
               {word.split("").map((char, charIndex) => (
