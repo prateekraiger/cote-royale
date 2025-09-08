@@ -18,7 +18,7 @@ export const Bounded = forwardRef<HTMLElement, BoundedProps>(
         )}
         {...restProps}
       >
-        <div className="mx-auto w-full max-w-6xl">{children}</div>
+        <div className="mx-auto w-full max-w-5xl">{children}</div>
       </Comp>
     );
   },
