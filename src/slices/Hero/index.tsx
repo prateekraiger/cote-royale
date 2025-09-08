@@ -47,14 +47,14 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         ></RevealText>
 
         <FadeIn
-          className="mt-4 sm:mt-6 max-w-md sm:max-w-lg text-base sm:text-lg text-neutral-100 tranlate-y-8"
+          className="mt-4 sm:mt-6 max-w-md sm:max-w-lg text-base sm:text-lg text-neutral-100"
           vars={{ delay: 1, duration: 1.3 }}
         >
           <PrismicRichText field={slice.primary.body} />
         </FadeIn>
 
         <FadeIn
-          className="mt-6 sm:mt-8 translate-y-5"
+          className="mt-6 sm:mt-8"
           vars={{ delay: 1.5, duration: 1.1 }}
         >
           {slice.primary.button.map((link) => (
