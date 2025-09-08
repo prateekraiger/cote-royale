@@ -5,48 +5,49 @@ import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <footer aria-labelledby="footer-heading" className="bg-black text-white">
+    <footer aria-labelledby="footer-heading" className="footer bg-black text-white">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="w-full px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-12">
+      <div className="w-full px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-12">
           <div className="col-span-12 lg:col-span-4">
-            <Link href="/" aria-label="Côte Royale Home" className="mb-8 block">
+            <Link href="/" aria-label="Côte Royale Home" className="mb-6 sm:mb-8 block">
               <Image
                 src="/logo.svg"
                 alt="CÔTE ROYALE"
                 width={180}
                 height={30}
+                className="w-36 sm:w-44 h-auto"
               />
             </Link>
-            <p className="text-gray-400 max-w-sm">
+            <p className="text-gray-400 max-w-sm text-sm sm:text-base">
               Crafting exceptional fragrances that capture the essence of luxury
               and sophistication.
             </p>
-            <div className="mt-8 flex space-x-6">
+            <div className="mt-6 sm:mt-8 flex space-x-4 sm:space-x-6">
               <a
                 href="https://www.instagram.com/dev.prat1k/"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors"
               >
-                <FaInstagram size={24} />
+                <FaInstagram size={20} className="sm:w-6 sm:h-6" />
               </a>
               <a
                 href="https://x.com/mrpratik753"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors"
               >
-                <FaTwitter size={24} />
+                <FaTwitter size={20} className="sm:w-6 sm:h-6" />
               </a>
               <a
                 href="https://pratik-me.pages.dev/"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors"
               >
-                <FaFacebookF size={24} />
+                <FaFacebookF size={20} className="sm:w-6 sm:h-6" />
               </a>
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <NavGroup title="Shop">
               <NavLink href="/fragrance/terra">Terra</NavLink>
               <NavLink href="/fragrance/ignis">Ignis</NavLink>
@@ -67,21 +68,21 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-neutral-800 pt-8 md:flex-row">
-          <p className="text-center text-sm text-gray-400">
+        <div className="mt-12 sm:mt-16 flex flex-col items-center justify-between gap-4 sm:gap-6 border-t border-neutral-800 pt-6 sm:pt-8 md:flex-row">
+          <p className="text-center text-xs sm:text-sm text-gray-400">
             © {new Date().getFullYear()} Côte Royale Inc. All rights reserved
           </p>
           <ul
             aria-label="Legal"
-            className="flex flex-wrap justify-center gap-6 text-sm text-gray-400"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400"
           >
             <li>
-              <Link href="#" className="hover:text-white">
+              <Link href="#" className="hover:text-white transition-colors">
                 Terms &amp; conditions
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">
+              <Link href="#" className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
             </li>
@@ -101,11 +102,11 @@ const NavGroup = ({ title, children }: NavGroupProps) => (
   <nav aria-labelledby={`${title.toLowerCase()}-heading`}>
     <h3
       id={`${title.toLowerCase()}-heading`}
-      className="mb-6 text-xl font-medium"
+      className="mb-4 sm:mb-6 text-lg sm:text-xl font-medium"
     >
       {title}
     </h3>
-    <ul className="space-y-4 text-gray-400" role="list">
+    <ul className="space-y-2 sm:space-y-4 text-gray-400 text-sm sm:text-base" role="list">
       {children}
     </ul>
   </nav>
@@ -119,7 +120,7 @@ type NavLinkProps = {
 const NavLink = ({ href, children }: NavLinkProps) => {
   return (
     <li>
-      <Link href={href} className="hover:text-white">
+      <Link href={href} className="hover:text-white transition-colors py-1 block">
         {children}
       </Link>
     </li>

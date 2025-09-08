@@ -66,15 +66,15 @@ export const FragranceAttributes = ({
 
   return (
     <div className={className}>
-      <p className="text-base mb-2 font-semibold uppercase">Features</p>
+      <p className="text-sm sm:text-base mb-2 font-semibold uppercase">Features</p>
       <div className="grid gap-2">
-        <p className="flex items-center gap-2">
-          <scentProfile.Icon className="size-6" />
+        <p className="flex items-center gap-2 text-sm sm:text-base">
+          <scentProfile.Icon className="size-5 sm:size-6 flex-shrink-0" />
           {scentProfile.label}
         </p>
         {mood && (
-          <p className="flex items-center gap-2">
-            <mood.Icon className="size-6" />
+          <p className="flex items-center gap-2 text-sm sm:text-base">
+            <mood.Icon className="size-5 sm:size-6 flex-shrink-0" />
             {mood.label}
           </p>
         )}

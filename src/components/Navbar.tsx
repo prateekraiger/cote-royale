@@ -18,14 +18,14 @@ type NavIconsProps = {
 };
 
 const NavIcons = ({ className = "", tabIndex }: NavIconsProps) => (
-  <div className={clsx("flex items-center gap-8", className)}>
-    <a href="#" className="text-white" aria-label="Search" tabIndex={tabIndex}>
+  <div className={clsx("flex items-center gap-4 md:gap-8", className)}>
+    <a href="#" className="text-white p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Search" tabIndex={tabIndex}>
       <HiMagnifyingGlass size={24} />
     </a>
-    <a href="#" className="text-white" aria-label="Account" tabIndex={tabIndex}>
+    <a href="#" className="text-white p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Account" tabIndex={tabIndex}>
       <HiUser size={24} />
     </a>
-    <a href="#" className="text-white" aria-label="Cart" tabIndex={tabIndex}>
+    <a href="#" className="text-white p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Cart" tabIndex={tabIndex}>
       <HiShoppingBag size={24} />
     </a>
   </div>
@@ -39,11 +39,11 @@ export const Navbar = () => {
   return (
     <header>
       <div className="navbar fixed top-0 left-0 z-50 w-full bg-black text-white">
-        <div className="flex items-center justify-between p-2 md:p-4">
+        <div className="flex items-center justify-between px-3 py-3 md:px-6 md:py-4">
           <button
             onClick={toggleDrawer}
             aria-label="Menu"
-            className="cursor-pointer p-2 text-white transition-colors duration-300 hover:bg-white/20"
+            className="cursor-pointer p-2 text-white transition-colors duration-300 hover:bg-white/20 rounded-md"
           >
             <HiBars3 size={24} />
           </button>
@@ -55,7 +55,7 @@ export const Navbar = () => {
                 alt="Côte Royale Paris"
                 width={180}
                 height={30}
-                className="w-32 md:w-44 h-auto"
+                className="w-28 sm:w-32 md:w-44 h-auto"
               />
             </Link>
           </div>
@@ -79,7 +79,7 @@ export const Navbar = () => {
 
       <div
         className={clsx(
-          "nav-drawer fixed top-0 left-0 z-50 h-full w-72 bg-neutral-900 p-6 transition-transform duration-500",
+          "nav-drawer fixed top-0 left-0 z-50 h-full w-80 sm:w-72 bg-neutral-900 p-4 sm:p-6 transition-transform duration-500",
           isDrawerOpen ? "translate-x-0" : "-translate-x-full",
         )}
         role="dialog"
@@ -96,25 +96,25 @@ export const Navbar = () => {
           </button>
         </div>
 
-        <nav className="space-y-4" aria-label="Main Navigation">
+        <nav className="space-y-3" aria-label="Main Navigation">
           <Link
             href="/"
             onClick={() => setIsDrawerOpen(false)}
-            className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
+            className="block border-b border-white/10 py-3 text-lg sm:text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300 transition-colors"
             tabIndex={isDrawerOpen ? 0 : -1}
           >
             Home
           </Link>
           
-          <div className="border-b border-white/10 py-2">
-            <div className="text-xl font-semibold tracking-wide text-white uppercase mb-2">
+          <div className="border-b border-white/10 py-3">
+            <div className="text-lg sm:text-xl font-semibold tracking-wide text-white uppercase mb-3">
               Fragrances
             </div>
             <div className="ml-4 space-y-2">
               <Link
                 href="/fragrance/ignis"
                 onClick={() => setIsDrawerOpen(false)}
-                className="block py-1 text-lg text-gray-300 hover:text-white"
+                className="block py-2 text-base sm:text-lg text-gray-300 hover:text-white transition-colors"
                 tabIndex={isDrawerOpen ? 0 : -1}
               >
                 Ignis
@@ -122,7 +122,7 @@ export const Navbar = () => {
               <Link
                 href="/fragrance/aqua"
                 onClick={() => setIsDrawerOpen(false)}
-                className="block py-1 text-lg text-gray-300 hover:text-white"
+                className="block py-2 text-base sm:text-lg text-gray-300 hover:text-white transition-colors"
                 tabIndex={isDrawerOpen ? 0 : -1}
               >
                 Aqua
@@ -130,7 +130,7 @@ export const Navbar = () => {
               <Link
                 href="/fragrance/terra"
                 onClick={() => setIsDrawerOpen(false)}
-                className="block py-1 text-lg text-gray-300 hover:text-white"
+                className="block py-2 text-base sm:text-lg text-gray-300 hover:text-white transition-colors"
                 tabIndex={isDrawerOpen ? 0 : -1}
               >
                 Terra
@@ -141,7 +141,7 @@ export const Navbar = () => {
           <Link
             href="/about"
             onClick={() => setIsDrawerOpen(false)}
-            className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
+            className="block border-b border-white/10 py-3 text-lg sm:text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300 transition-colors"
             tabIndex={isDrawerOpen ? 0 : -1}
           >
             About
@@ -150,14 +150,14 @@ export const Navbar = () => {
           <Link
             href="/contact"
             onClick={() => setIsDrawerOpen(false)}
-            className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
+            className="block border-b border-white/10 py-3 text-lg sm:text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300 transition-colors"
             tabIndex={isDrawerOpen ? 0 : -1}
           >
             Contact
           </Link>
-          <div className="pt-4 md:hidden">
+          <div className="pt-6 md:hidden">
             <NavIcons
-              className="justify-around"
+              className="justify-center gap-6"
               tabIndex={isDrawerOpen ? 0 : -1}
             />
           </div>

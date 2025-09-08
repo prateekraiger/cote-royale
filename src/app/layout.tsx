@@ -46,7 +46,7 @@ export default function RootLayout({
       >
         <body className="bg-neutral-900 text-white">
           <Navbar />
-          <main className="pt-14 md:pt-16">{children}</main>
+          <main className="pt-16 sm:pt-18 md:pt-20">{children}</main>
           <Footer />
           <PrismicPreview repositoryName={repositoryName} />
         </body>

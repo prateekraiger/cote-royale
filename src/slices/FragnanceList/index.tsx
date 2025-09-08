@@ -21,11 +21,11 @@ const FragnanceList: FC<FragnanceListProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="space-y-8 bg-black py-16 text-center text-white md:py-24"
+      className="space-y-6 sm:space-y-8 bg-black py-12 sm:py-16 md:py-24 text-center text-white"
     >
-      <div className="mx-auto space-y-8 ">
+      <div className="mx-auto space-y-6 sm:space-y-8">
         <FadeIn className="translate-y-8 opacity-0" vars={{ duration: 0.8 }}>
-          <p className="text-sm font-light tracking-[0.2em] uppercase">
+          <p className="text-xs sm:text-sm font-light tracking-[0.15em] sm:tracking-[0.2em] uppercase">
             {slice.primary.eyebrow}{" "}
           </p>
         </FadeIn>
@@ -37,16 +37,16 @@ const FragnanceList: FC<FragnanceListProps> = ({ slice }) => {
           align="center"
           duration={1.5}
           staggerAmount={0.3}
-          className="text-5xl font-display uppercase sm:text-6xl md:text-7xl lg:text-8xl"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-display uppercase leading-tight"
         />
 
         <FadeIn className="translate-y-8 opacity-0" vars={{ duration: 1, delay: 0.5 }}>
-          <div className="mx-auto max-w-2xl text-lg text-balance text-grey-300">
+          <div className="mx-auto max-w-sm sm:max-w-lg md:max-w-2xl text-base sm:text-lg text-balance text-grey-300 px-4">
             <PrismicRichText field={slice.primary.body} />
           </div>
         </FadeIn>
 
-        <div className="grid mt-12 grid-cols-1 gap-12 ">
+        <div className="grid mt-8 sm:mt-12 grid-cols-1 gap-8 sm:gap-12">
           {slice.primary.fragrances.map((item) => {
             if (isFilled.contentRelationship(item.fragrance)) {
               return (

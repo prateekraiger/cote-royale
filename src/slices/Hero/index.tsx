@@ -36,32 +36,32 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         />
       </FadeIn>
 
-      <div className="flex relative h-screen flex-col justify-center">
+      <div className="flex relative h-screen flex-col justify-center px-4 sm:px-6">
         <RevealText
           field={slice.primary.heading}
           id="hero-heading"
-          className="max-w-xl text-6xl leading-none text-neutral-50 max:text-7xl lg:text-8xl font-display"
+          className="max-w-xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight sm:leading-none text-neutral-50 font-display"
           staggerAmount={0.2}
           duration={1.6}
           as="h1"
         ></RevealText>
 
         <FadeIn
-          className="mt-6 max-w-md text-lg text-neutral-100 tranlate-y-8"
+          className="mt-4 sm:mt-6 max-w-sm sm:max-w-md text-base sm:text-lg text-neutral-100 tranlate-y-8"
           vars={{ delay: 1, duration: 1.3 }}
         >
           <PrismicRichText field={slice.primary.body} />
         </FadeIn>
 
         <FadeIn
-          className="mt-8 translate-y-5"
+          className="mt-6 sm:mt-8 translate-y-5"
           vars={{ delay: 1.5, duration: 1.1 }}
         >
           {slice.primary.button.map((link) => (
             <ButtonLink
               key={link.key}
               field={link}
-              className="w-fit"
+              className="w-full sm:w-fit"
               variant="Secondary"
             />
 
